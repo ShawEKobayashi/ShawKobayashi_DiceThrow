@@ -25,6 +25,7 @@ class DieFragment : Fragment() {
         }
     }
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -44,6 +45,7 @@ class DieFragment : Fragment() {
     }
 
     fun throwDie() {
-        dieTextView.text = Random.nextInt(dieSides).toString()
+        var diceRoll = Random.nextInt(dieSides)+1
+        dieTextView.text = diceRoll.toString()
     }
 }
