@@ -15,6 +15,7 @@ class DieFragment : Fragment() {
     lateinit var dieTextView: TextView
 
     var dieSides: Int = 6
+    var currentSide: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +25,6 @@ class DieFragment : Fragment() {
             }
         }
     }
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,7 +45,17 @@ class DieFragment : Fragment() {
     }
 
     fun throwDie() {
-        var diceRoll = Random.nextInt(dieSides)+1
-        dieTextView.text = diceRoll.toString()
+        currentSide = Random.nextInt(dieSides)+1
+        dieTextView.text = currentSide.toString()
+    }
+
+    companion object
+
+    fun newInstance(sides: Int): DieFragment {
+        return DieFragment().apply{
+            var bundleTemp = Bundle()
+            bundleTemp.putInt(this.DIESIDE, sides)
+            arguments = bundleTemp
+        }
     }
 }
