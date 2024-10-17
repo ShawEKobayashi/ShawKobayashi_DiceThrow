@@ -49,13 +49,13 @@ class DieFragment : Fragment() {
         dieTextView.text = currentSide.toString()
     }
 
-    companion object
-
-    fun newInstance(sides: Int): DieFragment {
-        return DieFragment().apply{
-            var bundleTemp = Bundle()
-            bundleTemp.putInt(this.DIESIDE, sides)
-            arguments = bundleTemp
+    companion object {
+        fun newInstance(sides: Int): DieFragment {
+            return DieFragment().apply{
+                var bundleTemp = Bundle()
+                bundleTemp.putInt(this.DIESIDE, sides)
+                arguments = bundleTemp
+            }
         }
     }
 }

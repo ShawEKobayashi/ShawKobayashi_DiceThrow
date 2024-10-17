@@ -15,7 +15,11 @@ class MainActivity : AppCompatActivity() {
             (supportFragmentManager.findFragmentById(R.id.diceContainer) as DieFragment).throwDie()
         }
 
-        val diceFragment = DieFragment.newInstance()
+        if (supportFragmentManager.findFragmentById(R.id.diceContainer) !is DieFragment){
+            var fragmentTransaction = supportFragmentManager.beginTransaction()
+            fragmentTransaction.add(R.id.diceContainer, DieFragment.newInstance(6))
+            fragmentTransaction.commit()
+        }
 
     }
 }
