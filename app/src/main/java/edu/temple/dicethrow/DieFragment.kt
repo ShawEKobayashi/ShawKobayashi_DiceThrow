@@ -64,6 +64,7 @@ class DieFragment : Fragment() {
         dieTextView.text = currentSide.toString()
     }
 
+
     companion object {
         fun newInstance(sides: Int): DieFragment {
             return DieFragment().apply{
